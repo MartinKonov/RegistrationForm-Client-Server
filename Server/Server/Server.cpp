@@ -3,7 +3,6 @@
 #include<winsock2.h>
 #include<ws2tcpip.h>
 #include <tchar.h>
-#include <omp.h>
 #include "User.h"
 #include <sqltypes.h>
 #include <sql.h>
@@ -23,11 +22,11 @@ void sendEmail(std::wstring email)
 	if (curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, "smtps://smtp.gmail.com:465");
 
-		curl_easy_setopt(curl, CURLOPT_USERNAME, "martokonov@gmail.com");
+		curl_easy_setopt(curl, CURLOPT_USERNAME, "myEmail@gmail.com");
 		curl_easy_setopt(curl, CURLOPT_PASSWORD, "opke exyf bwof nhqf");
 
 
-		curl_easy_setopt(curl, CURLOPT_MAIL_FROM, "martokonov@gmail.com");
+		curl_easy_setopt(curl, CURLOPT_MAIL_FROM, "myEmail@gmail.com");
 		curl_easy_setopt(curl, CURLOPT_MAIL_RCPT, email.c_str());
 
 		const char* email_data = "Subject: Your Registration Confirmation\n From: martokonov@gmail.com\n\n Thank you for registering!";
